@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HODLINFO</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <img src="./assets/Screenshot 2024-02-02 221546.png" alt="headerImage" />
+
+    <div class="buttonContainer">
+        <button onclick="fetchData()">Fetch Data</button>
+        <button onclick="storeData()">Store Data</button>
+    </div>
+    <div class="contentContainer">
+        <div class="div0" style="display: flex;"></div>
+        <div class="div1" style="display: flex;"></div>
+        <div class="div2" style="display: flex;"></div>
+        <div class="div3" style="display: flex;"></div>
+        <div class="div4" style="display: flex;"></div>
+        <div class="div5" style="display: flex;"></div>
+        <div class="div6" style="display: flex;"></div>
+        <div class="div7" style="display: flex;"></div>
+        <div class="div8" style="display: flex;"></div>
+        <div class="div9" style="display: flex;"></div>
+        <div class="div10" style="display: flex;"></div>
+    </div>
+    <!-- <img src="./assets/Screenshot 2024-02-03 001039.png" alt="headerImage" /> -->
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:5000/fetchData');
+                const data = await response.json();
+                updateDivContent(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        function updateDivContent(data) {
+            const dataArray = Array.isArray(data) ? data : Object.values(data);
+            for (let i = 0; i < dataArray.length && i < 10; i++) {
+                const divElement = document.querySelector(`.div${i + 1}`);
+                if (divElement) {
+                    const ticker = dataArray[i];
+                    divElement.innerHTML = `
+                <p>Name: ${ticker.name}</p>
+                <p>, Last: ${ticker.last}</p>
+                <p>, Buy: ${ticker.buy}</p>
+                <p>, Sell: ${ticker.sell}</p>
+                <p>, Volume: ${ticker.volume}</p>
+                <p>, Base_Unit: ${ticker.base_unit}</p>
+            `;
+                }
+            }
+        }
+
+
+        async function storeData() {
+            try {
+                const response = await fetch('http://localhost:5000/storeData');
+                const result = await response.text();
+                const value = document.querySelector('.div0');
+                value.innerHTML = `Data Stored in MongoDB database successfully`;
+                console.log('Store Data Result:', result);
+            } catch (error) {
+                console.error('Error storing data:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>

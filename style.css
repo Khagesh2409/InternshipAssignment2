@@ -1,0 +1,88 @@
+body {
+    background-color: #191d28;
+}
+
+img {
+    width: 100%;
+}
+
+.contentContainer {
+    margin-left: 5%;
+}
+
+.div0 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div1 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div2 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div3 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div4 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div5 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div6 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div7 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div8 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div9 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.div10 {
+    gap: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+    padding: 5%;
+}
+
+button {
+    font-size: 2rem;
+}
